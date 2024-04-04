@@ -1,0 +1,100 @@
+*,
+*::before,
+*::after
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container
+{
+    width: 90%;
+    margin: auto;
+}
+
+ul
+{
+    list-style: none;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+input
+{
+    font-size: 15px;
+    padding: 5px;
+}
+
+button
+{
+    border: none;
+    cursor: pointer;
+}
+
+.main-header
+{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.navigation__link
+{
+    font-size: 20px;
+    padding: 3px 6px;
+}
+
+.navigation__list
+{
+    display: flex;
+    gap: 15px;
+}
+
+.navigation__link.active-route
+{
+    background-color: black;
+    color: white;
+}
+
+.form-holder
+{
+    max-width: 400px;
+    margin-top: 120px;
+    margin-bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #efeeee;
+    padding: 30px;
+}
+
+.create-ride-form
+{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.create-ride-form button[type="submit"]
+{
+    padding: 10px;
+    color: white;
+    background-color: black;
+}
+
+.create-ride-form button[type="submit"]:hover
+{
+    filter: brightness(70%);
+}
+
+.form-field
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
