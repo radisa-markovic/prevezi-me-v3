@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get("/rides", fn() => view("mile"))->name("routes");
+Route::get("/rides", fn() => view("mile"))->name("rides");
 Route::get("/rides/new", fn() => view('newRide'))->name('newRide');
 
 Route::post("/rides/create", [RideController::class, 'store'])->name("createRide");

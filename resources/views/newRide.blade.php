@@ -6,17 +6,18 @@
             action="{{route('createRide')}}"
             class="create-ride-form"
         >
+            @csrf
             <x-form-field
                 :caption="'Od:'"
-                :name="'rideFrom'"
+                :name="'starting_point'"
             />
             <x-form-field
                 :caption="'Do:'"
-                :name="'rideTo'"
+                :name="'destination'"
             />
             <x-form-field
                 :caption="'Raspoloživih mesta'"
-                :name="'capacity'"
+                :name="'passenger_space'"
             />
 
             <button type="submit">

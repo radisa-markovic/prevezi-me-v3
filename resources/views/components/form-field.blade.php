@@ -10,4 +10,9 @@
         id="{{$name}}"
         value="{{old($name)}}"
     />
+    @error("$name")
+        <p class="form-error">
+            {{ $message }}
+        </p>
+    @enderror
 </div>

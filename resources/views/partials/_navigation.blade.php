@@ -6,7 +6,7 @@
             Naslovna
         </x-navigation-item>
         <x-navigation-item
-            :route="'routes'"
+            :route="'rides'"
         >
             Nađi vožnju
         </x-navigation-item>
