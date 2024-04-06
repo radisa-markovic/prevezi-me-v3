@@ -1,4 +1,4 @@
-@props(['caption', "name"])
+@props(['caption', "name", "value" => old($name)])
 
 <div class="form-field">
     <label for="{{$name}}">
@@ -8,7 +8,7 @@
         type="text" 
         name="{{$name}}" 
         id="{{$name}}"
-        value="{{old($name)}}"
+        value="{{$value}}"
     />
     @error("$name")
         <p class="form-error">
