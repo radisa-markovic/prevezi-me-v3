@@ -39,23 +39,27 @@ button
 {
     padding-top: 15px;
     padding-bottom: 15px;
+    margin-bottom: 60px;
 }
 
 .navigation__link
 {
     font-size: 20px;
     padding: 3px 6px;
+    color: black;
 }
 
 .navigation__list
 {
     display: flex;
+    align-items: center;
     gap: 15px;
 }
 
+.navigation__link:hover,
 .navigation__link.active-route
 {
-    background-color: black;
+    background-color: dodgerblue;
     color: white;
 }
 
@@ -84,7 +88,6 @@ button
 {
     padding: 10px;
     color: white;
-    background-color: black;
 }
 
 .create-ride-form button[type="submit"]:hover

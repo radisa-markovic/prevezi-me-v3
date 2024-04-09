@@ -50,7 +50,10 @@
             </div>
             
 
-            <button type="submit">
+            <button 
+                type="submit" 
+                class="primary-button"
+            >
                 Postavi vožnju
             </button>
         </form>

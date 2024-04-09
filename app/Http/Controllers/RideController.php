@@ -11,7 +11,7 @@ class RideController extends Controller
     //
     public function index()
     {
-        $rides = Ride::all();
+        $rides = Ride::orderBy('created_at','desc')->get();
         return view("rides.index", ['rides' => $rides]);
     }
 
@@ -51,6 +51,15 @@ class RideController extends Controller
 
     public function update(Request $request)
     {
+        // dd($request);
+        /**
+         * ==>>
+         * because it's required but not sent,
+         * this will fail silently on "price_per_passenger"
+         * due to in not originally being sent.
+         * After the create form was amended,
+         * it became possible to update the ride
+         */
         $formFields = $request->validate([
             "starting_point" => ["bail", "required", "min:1", "max:100"],
             "destination" => "bail|required|min:1|max:100",

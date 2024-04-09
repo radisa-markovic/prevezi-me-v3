@@ -18,6 +18,13 @@
                 :name="'destination'"
                 :value="$ride->destination"
             />
+
+            <x-form-field
+                :caption="'Cena po putniku'"
+                :name="'price_per_passenger'"
+                :value="$ride->price_per_passenger"
+            />
+
             <x-form-field
                 :caption="'Raspoloživih mesta'"
                 :name="'passenger_space'"
@@ -25,7 +32,7 @@
             />
 
             <button type="submit">
-                Postavi vožnju
+                Ažuriraj vožnju
             </button>
         </form>
     </div>
