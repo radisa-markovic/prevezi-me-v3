@@ -27,7 +27,7 @@
         <header class="container main-header">
             @include('partials._navigation')    
         </header>
-        <main class="container">
+        <main {{ $attributes->merge(['class' => "container"]) }}>
             {{$slot}} 
         </main>    
 

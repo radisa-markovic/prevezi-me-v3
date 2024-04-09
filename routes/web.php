@@ -48,3 +48,5 @@ Route::delete(
     "/rides/delete/{id}",
     [RideController::class, "destroy"]
 )->name("deleteRide");
+
+Route::post("/rides/reserve/{rideID}", fn() => view("welcome"))->name("reserveRide");
