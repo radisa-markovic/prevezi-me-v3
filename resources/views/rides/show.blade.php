@@ -1,8 +1,12 @@
 <x-layout>
+    {{-- @dd($ride) --}}
     <article>
         <a href="{{route('editRide', ["id" => $ride['id'] ])}}">
             Ažuriraj
         </a>
+        <time>
+            Postavljeno: {{ $ride['created_at'] }}
+        </time>
         <form
             method="POST"
             action="{{route('deleteRide', ['id' => $ride->id])}}"

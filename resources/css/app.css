@@ -98,3 +98,44 @@ button
     flex-direction: column;
     gap: 10px;
 }
+
+.ride-holder
+{
+    padding: 3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.ride-holder > *
+{
+    margin-bottom: 5px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.primary-button,
+.secondary-button
+{
+    padding: 3px 6px;
+    font-size: 17px;
+}
+
+.primary-button
+{
+    color: white;
+    font-weight: 700;
+    background-color: dodgerblue;
+}
+
+.secondary-button
+{
+    color: dodgerblue;
+    font-weight: 700;
+    border: 2px solid dodgerblue;
+}
+
+.ride-guest-options
+{
+    display: flex;
+    justify-content: space-between;
+}
