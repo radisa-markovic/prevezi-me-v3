@@ -13,5 +13,7 @@ class Ride extends Model
         "starting_point", 
         "destination",
         "passenger_space",
+        "price_per_passenger",
+        "departure_time"
     ];
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Ride;
 use Illuminate\Http\Request;
 
@@ -21,8 +22,14 @@ class RideController extends Controller
         $formFields = $request->validate([
             "starting_point" => ["bail", "required", "min:1", "max:100"],
             "destination" => "bail|required|min:1|max:100",
-            "passenger_space" => "bail|required|min:1"
+            "passenger_space" => "bail|required|min:1",
+            "price_per_passenger"=> "bail|required|min:3|max:7"
         ]);
+
+        $formFields["departure_time"] = Carbon::createFromFormat(
+            "Y-m-d H:i",
+            $request["departure_time"] . " " . $request['departureHour'] . ":" . $request['departureMinute']
+        ); 
 
         Ride::create($formFields);
         return redirect(route('rides'));
@@ -47,7 +54,8 @@ class RideController extends Controller
         $formFields = $request->validate([
             "starting_point" => ["bail", "required", "min:1", "max:100"],
             "destination" => "bail|required|min:1|max:100",
-            "passenger_space" => "bail|required|min:1"
+            "passenger_space" => "bail|required|min:1",
+            "price_per_passenger"=> "bail|required|min:3|max:7"
         ]);
 
         Ride::findOrFail($request->id)->update($formFields);

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,6 +21,8 @@ class RideFactory extends Factory
             'starting_point' => fake()->city(),
             'destination' => fake()->city(),
             'passenger_space' => fake()->numberBetween(1, 8),
+            'price_per_passenger' => fake()->numberBetween(1000, 3000),
+            'departure_time' => Carbon::now(),
         ];
     }
 }
