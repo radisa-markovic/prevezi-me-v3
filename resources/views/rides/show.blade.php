@@ -1,20 +1,4 @@
 <x-layout class="main-ride-container">
-    {{-- <a href="{{route('editRide', ["id" => $ride['id'] ])}}">
-        Ažuriraj
-    </a>
-    <time>
-        Postavljeno: {{ $ride['created_at'] }}
-    </time> --}}
-    {{-- <form
-        method="POST"
-        action="{{route('deleteRide', ['id' => $ride->id])}}"
-    >
-        @csrf
-        @method("DELETE")
-        <button type="submit">
-            Obriši
-        </button>
-    </form> --}}
     <div class="two-columns blackish-shadow">
         <div class="single-ride-cta">
             <h1 

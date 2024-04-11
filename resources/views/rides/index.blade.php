@@ -56,5 +56,8 @@
                 </article>
             @endforeach
         </div>
+        {{-- <div>
+            {{ $rides->links() }}
+        </div> --}}
     </section>
 </x-layout>
