@@ -1,11 +1,11 @@
-@props(['caption', "name", "value" => old($name)])
+@props(['caption', "name", "value" => old($name), "type" => "text"])
 
 <div class="form-field">
     <label for="{{$name}}">
         {{ $caption }}
     </label>
     <input 
-        type="text" 
+        type="{{$type}}" 
         name="{{$name}}" 
         id="{{$name}}"
         value="{{$value}}"

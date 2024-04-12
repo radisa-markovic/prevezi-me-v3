@@ -178,7 +178,8 @@ button
     margin-bottom: 15px;
 }
 
-.main-ride-container
+.main-ride-container,
+.narrow-container
 {
     max-width: 700px;
 }
@@ -206,4 +207,18 @@ button
 .single-ride-cta
 {
     padding: 10px;
+}
+
+.form
+{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.form-error
+{
+    color: red;
+    font-weight: 700;
 }

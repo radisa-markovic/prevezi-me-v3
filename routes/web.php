@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\RideController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RideController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +19,22 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get("/rides", [RideController::class, "index"])->name("rides");
-Route::get("/rides/new", fn() => view('rides.create'))->name('newRide');
+Route::get(
+    "/rides", 
+    [RideController::class, "index"]
+)->name("rides");
+
+Route::get(
+    "/rides/new", 
+    fn() => view('rides.create')
+)->name('newRide')
+->middleware("auth");
 
 Route::post(
     "/rides/create", 
     [RideController::class, 'store']
-)->name("createRide");
+)->name("createRide")
+->middleware("auth");
 
 Route::get(
     "/rides/{id}", 
@@ -37,16 +47,53 @@ Route::get(
 Route::get(
     "/rides/edit/{id}", 
     [RideController::class, "edit"]
-)->name("editRide");
+)->name("editRide")
+->middleware("auth");
 
 Route::put(
     "/rides/update/{id}", 
     [RideController::class, "update"]
-)->name("updateRide");
+)->name("updateRide")
+->middleware("auth");
 
 Route::delete(
     "/rides/delete/{id}",
     [RideController::class, "destroy"]
-)->name("deleteRide");
+)->name("deleteRide")
+->middleware("auth");
 
-Route::post("/rides/reserve/{rideID}", fn() => view("welcome"))->name("reserveRide");
+Route::post(
+    "/rides/reserve/{rideID}", 
+    fn() => view("welcome")
+)->name("reserveRide")
+->middleware("auth");
+
+Route::get(
+    "/login", 
+    [UserController::class, "loginForm"]
+)->name('loginPage')
+->middleware("guest");
+
+Route::post(
+    "/users/authenticate", 
+    [UserController::class, "authenticate"]
+)->name("authenticate")
+->middleware("guest");
+
+Route::post(
+    "/users/logout",
+    [UserController::class, "logout"]
+)->name("logout")
+->middleware("auth");
+
+Route::get(
+    "/users/register", 
+    [UserController::class, "register"]
+)->name("registerPage")
+->middleware("guest");
+
+Route::post(
+    "/users/attemptRegistration", 
+    [UserController::class, "store"]
+)->name('register')
+->middleware("guest");
