@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Ride extends Model
 {
@@ -14,6 +15,12 @@ class Ride extends Model
         "destination",
         "passenger_space",
         "price_per_passenger",
-        "departure_time"
+        "departure_time",
+        "description"
     ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

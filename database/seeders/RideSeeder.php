@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Ride;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class RideSeeder extends Seeder
 {
@@ -13,8 +14,14 @@ class RideSeeder extends Seeder
      */
     public function run(): void
     {
+        $user = User::factory()->create([
+            "name" => "Pera Peric",
+            "email" => "pera@mail.com",
+            "password" => "12345678"
+        ]);
+
         Ride::factory()
             ->count(10)
-            ->create();
+            ->create(["user_id" => $user->id]);
     }
 }

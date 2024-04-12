@@ -23,6 +23,7 @@ class RideFactory extends Factory
             'passenger_space' => fake()->numberBetween(1, 8),
             'price_per_passenger' => fake()->numberBetween(1000, 3000),
             'departure_time' => Carbon::now(),
+            'description' => fake()->paragraph(4),
         ];
     }
 }
