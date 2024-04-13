@@ -11,6 +11,29 @@
         <div class="rides-holder">
             @foreach($rides as $ride)
                 <article class="ride-holder">
+                    @auth
+                        @if(auth()->user()->id === $ride->user_id)
+                            <form
+                                method="POST"
+                                action="{{route('deleteRide', ['id' => $ride->id])}}"
+                            >
+                                @csrf
+                                @method('DELETE')
+                                <button 
+                                    type="submit"
+                                    class="delete-button"    
+                                >
+                                    Obriši
+                                </button>
+                            </form>
+                            <a 
+                                href="{{route('editRide', ["id" => $ride['id'] ])}}"
+                                class="secondary-button"    
+                            >
+                                Ažuriraj
+                            </a>
+                        @endif
+                    @endauth
                     <div class="container">
                         <h2 class="ride-caption">
                             <span>
@@ -21,6 +44,14 @@
                                 {{$ride['destination']}} 
                             </span>
                         </h2>
+
+                        <p>Vozač:</p>
+                        <a 
+                            href="{{route('getUser', ['id' => $ride->user_id])}}"
+                        >
+                            {{ $ride->user->name }}
+                        </a>
+
                         <p>Polazak:</p>
                         <time style="display: block;font-size:20px;">
                             {{ $ride['departure_time'] }}
@@ -44,12 +75,6 @@
                                 class="primary-button"    
                             >
                                 Pogledaj
-                            </a>
-                            <a 
-                                href="{{route('editRide', ["id" => $ride['id'] ])}}"
-                                class="secondary-button"    
-                            >
-                                Ažuriraj
                             </a>
                         </div>
                     </div>

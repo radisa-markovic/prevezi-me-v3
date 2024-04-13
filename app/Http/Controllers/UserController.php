@@ -62,4 +62,10 @@ class UserController extends Controller
     {
         return view("users.register");
     }
+
+    public function show(Request $request)
+    {
+        $user = User::find($request->id);
+        return view("users.show", ['user' => $user]);
+    }
 }

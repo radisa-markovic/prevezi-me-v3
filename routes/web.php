@@ -97,3 +97,8 @@ Route::post(
     [UserController::class, "store"]
 )->name('register')
 ->middleware("guest");
+
+Route::get(
+    "/users/{id}", 
+    [UserController::class, "show"]
+)->name("getUser");

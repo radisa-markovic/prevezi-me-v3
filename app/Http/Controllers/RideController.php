@@ -31,6 +31,8 @@ class RideController extends Controller
             $request["departure_time"] . " " . $request['departureHour'] . ":" . $request['departureMinute']
         ); 
 
+        $formFields['user_id'] = auth()->user()->id;
+
         Ride::create($formFields);
         return redirect(route('rides'));
     }

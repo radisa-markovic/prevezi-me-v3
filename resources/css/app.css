@@ -222,3 +222,11 @@ button
     color: red;
     font-weight: 700;
 }
+
+.delete-button
+{
+    background-color: red;
+    color: white;
+    padding: 3px 6px;
+    font-size: 20px;
+}

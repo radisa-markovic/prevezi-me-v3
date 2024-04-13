@@ -48,6 +48,18 @@
                     style="width:50%;"
                 />
             </div>
+
+            <p>Opis (nije obavezno):</p>
+            <div style="display: flex;gap:30px;">
+                <textarea 
+                    name="description" 
+                    id="description" 
+                    cols="30" 
+                    rows="10"
+                >
+                    {{ old('description') }}
+                </textarea>
+            </div>
             
 
             <button 

@@ -16,7 +16,8 @@ class Ride extends Model
         "passenger_space",
         "price_per_passenger",
         "departure_time",
-        "description"
+        "description",
+        "user_id"
     ];
 
     public function user(): BelongsTo
