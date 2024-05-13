@@ -11,7 +11,8 @@ class RideController extends Controller
     //
     public function index()
     {
-        $rides = Ride::orderBy('created_at','desc')->get();
+        $rides = Ride::with(["users"])->orderBy('created_at','desc')->get();
+        
         return view("rides.index", ['rides' => $rides]);
     }
 

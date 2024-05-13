@@ -5,8 +5,8 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -44,8 +44,9 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function rides(): HasMany
+    /**==>> important to be plural, otherwise seeder throws error */
+    public function rides(): BelongsToMany
     {
-        return $this->hasMany(Ride::class);
+        return $this->belongsToMany(Ride::class, "user_rides");
     }
 }

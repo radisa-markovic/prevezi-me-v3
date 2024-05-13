@@ -12,7 +12,10 @@
             @foreach($rides as $ride)
                 <article class="ride-holder">
                     @auth
-                        @if(auth()->user()->id === $ride->user_id)
+                        {{-- @dd(auth()->user()->id) --}}
+                        {{-- @dd($ride->users()->where("user_id", auth()->user()->id)->first()->pivot->is_driver === 1) --}}
+                        {{-- @dd($ride->loggedInUserIsDriver()) --}}
+                        @if($ride->loggedInUserIsDriver())
                             <form
                                 method="POST"
                                 action="{{route('deleteRide', ['id' => $ride->id])}}"
@@ -47,9 +50,9 @@
 
                         <p>Vozač:</p>
                         <a 
-                            href="{{route('getUser', ['id' => $ride->user_id])}}"
+                            href="{{route('getUser', ['id' => $ride->users()->wherePivot("is_driver", 1)->first()->id ])}}"
                         >
-                            {{ $ride->user->name }}
+                            {{ $ride->users()->wherePivot("is_driver", 1)->first()->name }}
                         </a>
 
                         <p>Polazak:</p>

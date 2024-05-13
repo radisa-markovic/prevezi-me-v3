@@ -14,14 +14,26 @@ class RideSeeder extends Seeder
      */
     public function run(): void
     {
-        $user = User::factory()->create([
-            "name" => "Pera Peric",
+        $userOne = User::factory()->create([
+            "email" => "email@email.com",
+            "name" => "Ime Prezime",
+            "password" => "12345678"
+        ]);
+
+        $userTwo = User::factory()->create([
             "email" => "pera@mail.com",
+            "name" => "Pera Peric",
             "password" => "12345678"
         ]);
 
         Ride::factory()
-            ->count(10)
-            ->create(["user_id" => $user->id]);
+            ->count(5)
+            ->hasAttached($userOne)
+            ->create();
+
+        Ride::factory()
+            ->count(5)
+            ->hasAttached($userTwo)
+            ->create();
     }
 }
